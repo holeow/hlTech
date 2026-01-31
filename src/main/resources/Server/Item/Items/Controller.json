@@ -69,5 +69,27 @@
       -13.5
     ]
   },
-  "Icon": "Icons/ItemsGenerated/Controller.png"
+  "Icon": "Icons/ItemsGenerated/Controller.png",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "cable",
+        "Quantity": 4
+      },
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 2
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Workbench",
+        "Categories": [
+          "Workbench_Tinkering"
+        ]
+      }
+    ],
+    "TimeSeconds": 4
+  }
 }
