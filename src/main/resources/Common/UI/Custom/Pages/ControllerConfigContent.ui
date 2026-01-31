@@ -1,0 +1,137 @@
+$C = "../Common.ui";
+@InfoLabel = Label {
+  Style: (FontSize: 13, TextColor: #96a9be);
+  Anchor: (Top: 8);
+  Text: @Text;
+};
+         
+Group #InfoSection
+{
+  LayoutMode: Top;
+  Anchor: (Bottom: 0,Height: 375);
+
+
+Group
+{
+  LayoutMode: Left;
+  Button #BackToControllerButton {
+  Group
+  {
+    LayoutMode: Center;
+    ItemSlot #ItemIconController
+    {
+
+      Anchor: (Width : 32, Height: 32);
+      ShowQualityBackground: true;
+      ShowQuantity: false;
+      ItemId:"Controller";
+    }
+
+    @InfoLabel #PositionLabel
+    {
+      @Text = "Position: 0, 0, 0";
+    }
+  }
+}
+  Button #BackToInputButton {
+  Group
+  {
+    LayoutMode: Center;
+    ItemSlot #ItemIconInput
+    {
+
+      Anchor: (Width : 32, Height: 32);
+      ShowQualityBackground: true;
+      ShowQuantity: false;
+      ItemId:"Controller";
+      Visible: false;
+    }
+
+    @InfoLabel #PositionLabelInput
+    {
+      @Text = "Position: 0, 0, 0";
+      Visible: false;
+
+    }
+  }
+}
+  Button #BackToOutputButton
+{
+
+
+  Group
+  {
+    LayoutMode: Center;
+    ItemSlot #ItemIconOutput
+    {
+
+      Anchor: (Width : 32, Height: 32);
+      ShowQualityBackground: true;
+      ShowQuantity: false;
+      ItemId:"Controller";
+      Visible: false;
+
+    }
+
+    @InfoLabel #PositionLabelOutput
+    {
+      @Text = "Position: 0, 0, 0";
+      Visible: false;
+    }
+  }
+}
+}
+  
+
+
+  Group #ItemGridContainer
+  {
+    //Anchor: (Top:0,Bottom:284);
+
+    FlexWeight: 1;
+    LayoutMode: TopScrolling;
+    ScrollbarStyle: $C.@DefaultScrollbarStyle;
+
+
+    Group #ItemGrid
+    {
+      //Anchor: (Height: 240);
+
+      LayoutMode: Top;
+
+    }
+  }
+  Group #PlayerInventorySection {
+    Anchor: (Bottom: 0);
+    LayoutMode: Bottom;
+
+    Visible: false;
+    Label {
+      Text: "Player Inventory";
+      Style: (FontSize: 16, TextColor: #ccb588, RenderBold: true);
+      Anchor: (Bottom: 8);
+    }
+
+
+    Group #PlayerGrid {
+      LayoutMode: LeftCenterWrap;
+
+    }
+  }
+
+  Group
+  {
+    Anchor: (Height: 44,Bottom: 0);
+    LayoutMode: Right;
+    $C.@SecondaryTextButton #CloseButton
+    {
+      @Text = "Close";
+      Anchor: (Width: 120, Height: 44);
+    }
+
+
+  }
+}
+
+
+

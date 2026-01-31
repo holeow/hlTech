@@ -1,0 +1,628 @@
+{
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Furniture.Furniture"
+  ],
+  "Set": "",
+  "Recipe": {
+    "TimeSeconds": 1,
+    "Input": [
+      {
+        "ItemId": "Ingredient_Bar_Iron",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "Ingredient_Bar_Copper",
+        "Quantity": 2
+      }
+    ],
+    "OutputQuantity": 8,
+    "BenchRequirement": [
+      {
+        "Type": "Crafting",
+        "Id": "Workbench",
+        "Categories": [
+          "Workbench_Tinkering"
+        ]
+      }
+    ]
+  },
+  "IconProperties": {
+    "Scale": 2.5,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -13.5
+    ]
+  },
+  "BlockType": {
+    "components": {
+      "hytale:block_entity": {}
+    },
+    "Supporting": {
+      "Up": [
+        {
+          "FaceType": "Full"
+        }
+      ],
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ],
+      "North": [
+        {
+          "FaceType": "Full"
+        }
+      ],
+      "South": [
+        {
+          "FaceType": "Full"
+        }
+      ],
+      "East": [
+        {
+          "FaceType": "Full"
+        }
+      ],
+      "West": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "BlockSoundSetId": "Clay_Pot_Small",
+    "CustomModel": "Blocks/Cables/Models/Cable-Empty.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/BlockTextures/Cable.png",
+        "Weight": 0
+      }
+    ],
+    "DrawType": "Model",
+    "Flags": {
+      "IsUsable": true
+    },
+    "Interactions": {
+      "Use": "cable_configure"
+    },
+    "InteractionHint": "server.interactionHints.open",
+    "HitboxType": "Beam",
+    "Gathering": {
+      "Soft": {}
+    },
+    "Material": "Solid",
+    "Opacity": "Semitransparent",
+    "ParticleColor": "#ffffff",
+    "Looping": true,
+    "RequiresAlphaBlending": false,
+    "CubeShadingMode": "Standard",
+    "CustomModelScale": 1.0,
+    "State": {
+      "Definitions": {
+        "Id": "cable_data",
+        "D": {
+          "CustomModel": "Blocks/Cables/Models/Cable-D.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DN": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DN.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DNE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DNE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DNEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DNEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DNS": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DNS.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DNSE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DNSE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DNSEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DNSEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DNSW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DNSW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DNW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DNW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DS": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DS.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DSE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DSE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DSEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DSEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DSW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DSW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "DW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-DW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "E": {
+          "CustomModel": "Blocks/Cables/Models/Cable-E.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "Empty": {
+          "CustomModel": "Blocks/Cables/Models/Cable-Empty.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "EW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-EW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "N": {
+          "CustomModel": "Blocks/Cables/Models/Cable-N.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "NE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-NE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "NEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-NEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "NS": {
+          "CustomModel": "Blocks/Cables/Models/Cable-NS.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "NSE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-NSE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "NSEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-NSEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "NSW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-NSW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "NW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-NW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "S": {
+          "CustomModel": "Blocks/Cables/Models/Cable-S.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "SE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-SE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "SEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-SEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "SW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-SW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "U": {
+          "CustomModel": "Blocks/Cables/Models/Cable-U.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UD": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UD.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDN": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDN.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDNE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDNE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDNEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDNEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDNS": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDNS.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDNSE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDNSE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDNSEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDNSEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDNSW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDNSW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDNW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDNW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDS": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDS.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDSE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDSE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDSEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDSEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDSW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDSW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UDW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UDW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UN": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UN.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UNE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UNE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UNEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UNEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UNS": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UNS.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UNSE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UNSE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UNSEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UNSEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UNSW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UNSW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UNW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UNW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "US": {
+          "CustomModel": "Blocks/Cables/Models/Cable-US.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "USE": {
+          "CustomModel": "Blocks/Cables/Models/Cable-USE.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "USEW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-USEW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "USW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-USW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "UW": {
+          "CustomModel": "Blocks/Cables/Models/Cable-UW.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        },
+        "W": {
+          "CustomModel": "Blocks/Cables/Models/Cable-W.blockymodel",
+          "CustomModelTexture": [
+            {
+              "Texture": "Blocks/BlockTextures/Cable.png"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "TranslationProperties": {
+    "Name": "server.items.cable.name",
+    "Description": "server.items.cable.description"
+  },
+  "Icon": "Icons/ItemsGenerated/cable.png"
+}

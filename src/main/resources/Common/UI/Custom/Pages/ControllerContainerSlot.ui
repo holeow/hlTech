@@ -1,0 +1,78 @@
+$C = "../Common.ui";
+
+
+Group
+{
+
+  FlexWeight: 1;
+  LayoutMode : Left;
+
+  Button #ItemButton
+  {
+    Anchor: (Width: 125, Height: 125);
+    Padding: 2;
+    Style: (
+      Hovered: (
+        Background: #ffffff(0.1),
+      ),
+      Pressed: (
+        Background: #000000(0.1),
+      )
+    );
+
+
+    ItemSlot #ItemIcon {
+      Anchor: (Full: 0);
+      ShowQualityBackground: true;
+      ShowQuantity: false;
+    }
+
+
+    Label #PositionLabel {
+      Anchor: (Right: 2, Bottom: 0);
+      Style: (
+        FontSize: 7,
+        TextColor: #ffffff,
+        HorizontalAlignment: End,
+        VerticalAlignment: End,
+        RenderBold: false,
+      );
+      Text: "";
+    }
+  }
+
+  Group
+  {
+    LayoutMode: Top;
+    Anchor: (Top: 0, Bottom: 0);
+    Label #InfoLabelInputOutput
+    {
+      Anchor: (Left: 3);
+      Style: (
+        FontSize: 14,
+        TextColor: #00ff00,
+        RenderBold: false,
+      );
+      Text: "XXX Inventory Outputs with this input";
+      Visible: false;
+    }
+
+    Group #OutputDataGroup
+    {
+      LayoutMode: Left;
+      Anchor: (Top:30, Bottom: 0);
+      Visible:false;
+      $C.@SecondaryTextButton #SetListMode
+      {
+        @Text = "Whitelist";
+        Anchor: (Width: 200, Height: 44, Bottom: 2);
+      }
+      $C.@SecondaryTextButton #SelectListMode
+      {
+        @Text = "Select List";
+        Anchor: (Width: 200, Height: 44, Bottom: 2);
+      }
+    }
+  }
+
+}

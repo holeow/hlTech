@@ -1,1 +1,5 @@
 items.Example_Block.name=Example Block
+items.HlPipeController.name=Pipe Controller
+items.cable.name=Cable
+items.cable.description=A cable to transfer items
+items.Controller.name=Cable Controller

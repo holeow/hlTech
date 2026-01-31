@@ -1,0 +1,41 @@
+$C = "../Common.ui";
+
+@SectionTitle = Label
+{
+  Style: (FontSize: 14, TextColor: #ccb588, RenderUppercase: true, RenderBold: true);
+  Anchor: (Bottom: 8);
+  Text: @Text;
+};
+
+@InfoLabel = Label
+{
+  Style: (FontSize: 13, TextColor: #96a9be);
+  Anchor: (Bottom: 4);
+  Text: @Text;
+};
+
+$C.@PageOverlay
+{
+  LayoutMode: Middle;
+
+  // Container
+  $C.@Container
+  {
+    Anchor: (Width: 900);
+
+    #Title
+    {
+      $C.@Title
+      {
+        @Text = "Controller Configuration";
+      }
+    }
+
+
+    #Content
+    {
+      Anchor : (Height: 400, Top:37);
+    }
+    
+  }
+}

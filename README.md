@@ -1,4 +1,13 @@
-# Hytale Plugin Template
+# hlTech
+hlTech is a technology mod for Hytale. It for now includes only item transfer cables and a controller for the cables, for chests and other inventories placed in the world.
+
+It uses the Hytale plugin template created by Up and modified by Kaupenjoe.
+It also uses a modified version of the code of Hypipes, and LGPL V3 mod created by blake21 (WanMine) accessible on curseforge here :https://www.curseforge.com/hytale/mods/hypipes
+
+
+
+
+## Hytale Plugin Template
 
 A template for Hytale java plugins. Created by [Up](https://github.com/UpcraftLP), and slightly modified by Kaupenjoe. 
 

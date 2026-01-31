@@ -1,0 +1,21 @@
+
+
+Button #ItemButton {
+  Anchor: (Width: 50, Height: 50);
+  Padding: 2;
+  Style: (
+    Hovered: (
+      Background: #ffffff(0.1),
+    ),
+    Pressed: (
+      Background: #000000(0.1),
+    )
+  );
+
+
+  ItemSlot #ItemIcon {
+    Anchor: (Full: 0);
+    ShowQualityBackground: true;
+    ShowQuantity: false;
+  }
+}
