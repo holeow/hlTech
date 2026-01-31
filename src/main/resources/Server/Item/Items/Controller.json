@@ -1,0 +1,73 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Controller.name"
+  },
+  "ItemLevel": 10,
+  "Categories": [
+    "Furniture.Furniture"
+  ],
+  "PlayerAnimationsId": "Block",
+  "Set": "",
+  "ResourceTypes": [
+    {
+      "Id": "Soils"
+    }
+  ],
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Group": "Soil",
+    "Flags": {
+      "IsUsable": true
+    },
+    "Interactions": {
+      "Use": "controller_configure"
+    },
+    "InteractionHint": "server.interactionHints.open",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Soils"
+      }
+    },
+    "BlockParticleSetId": "Dirt",
+    "Textures": [
+      {
+        "Weight": 1
+      }
+    ],
+    "ParticleColor": "#dddddd",
+    "BlockSoundSetId": "Metal",
+    "CustomModel": "Blocks/Controller.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "Blocks/BlockTextures/cablecontroller.png"
+      }
+    ],
+    "CubeShadingMode": "Standard",
+    "Opacity": "Transparent",
+    "RequiresAlphaBlending": false,
+    "VariantRotation": "NESW",
+    "components": {
+      "hytale:block_entity": {}
+    }
+  },
+  "Tags": {
+    "Type": [
+      "Soil"
+    ]
+  },
+  "ItemSoundSetId": "ISS_Items_Metal",
+  "IconProperties": {
+    "Scale": 0.58823,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -13.5
+    ]
+  },
+  "Icon": "Icons/ItemsGenerated/Controller.png"
+}

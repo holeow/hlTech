@@ -1,0 +1,11 @@
+$C = "../Common.ui";
+@InfoLabel = Label {
+  Style: (FontSize: 13, TextColor: #96a9be);
+  Anchor: (Bottom: 4);
+  Text: @Text;
+};
+
+  @InfoLabel #TestLabel
+  {
+    @Text = "Hello world!";
+  }
