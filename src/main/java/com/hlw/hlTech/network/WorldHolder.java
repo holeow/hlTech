@@ -66,6 +66,7 @@ public class WorldHolder {
     private final Map<Long,ArrayList<BlockPos>> inventoryPositionsToRecheck = new HashMap<>();
 
 
+
     private boolean dirty;
 
 
@@ -565,7 +566,7 @@ public class WorldHolder {
         for(CableRetryEntry entry : new HashSet<CableRetryEntry>(this.pendingConnections)) {
             this.pendingConnections.remove(entry);
             NodeHolder node = this.getNodeAt(entry.nodePos());
-            if (node != null && !this.inventoryCache.containsKey(entry.inventoryPos()) && !this.tryInventoryConnectionRetry(node, entry.inventoryPos(), entry.direction()) && entry.retryCount() < 10) {
+            if (node != null && !node.getNetwork().connectedInventories.containsKey(entry.inventoryPos()) && !this.tryInventoryConnectionRetry(node, entry.inventoryPos(), entry.direction()) && entry.retryCount() < 10) {
                 this.pendingConnections.add(entry.withIncrementedRetry());
             }
         }
