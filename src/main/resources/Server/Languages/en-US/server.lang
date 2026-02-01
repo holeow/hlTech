@@ -1,5 +1,3 @@
-items.Example_Block.name=Example Block
-items.HlPipeController.name=Pipe Controller
-items.cable.name=Cable
-items.cable.description=A cable to transfer items
-items.Controller.name=Cable Controller
+items.hltechcable.name=HLTECH Cable
+items.hltechcable.description=A cable to transfer items
+items.hltechcontroller.name=HLTECH Cable Controller

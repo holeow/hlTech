@@ -43,7 +43,7 @@ public class ControllerUseBlockEventSystem extends EntityEventSystem<EntityStore
     public void handle(int i, @NonNull ArchetypeChunk<EntityStore> archetypeChunk, @NonNull Store<EntityStore> store, @NonNull CommandBuffer<EntityStore> commandBuffer,  UseBlockEvent.Pre pre) {
         String id = pre.getBlockType().getId();
 
-    if(id.equalsIgnoreCase("controller")){
+    if(id.equalsIgnoreCase("hltech_ctrl")){
         try{
             if(pre.getContext().getChain() == null || pre.getContext().getChain().getCallDepth() != 0)
                 return;

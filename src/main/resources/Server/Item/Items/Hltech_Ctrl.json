@@ -1,6 +1,6 @@
 {
   "TranslationProperties": {
-    "Name": "server.items.Controller.name"
+    "Name": "server.items.hltechcontroller.name"
   },
   "ItemLevel": 10,
   "Categories": [
@@ -37,10 +37,10 @@
     ],
     "ParticleColor": "#dddddd",
     "BlockSoundSetId": "Metal",
-    "CustomModel": "Blocks/Controller.blockymodel",
+    "CustomModel": "Blocks/Hltech_Ctrl.blockymodel",
     "CustomModelTexture": [
       {
-        "Texture": "Blocks/BlockTextures/cablecontroller.png"
+        "Texture": "Blocks/BlockTextures/Hltech_Ctrl.png"
       }
     ],
     "CubeShadingMode": "Standard",
@@ -49,6 +49,13 @@
     "VariantRotation": "NESW",
     "components": {
       "hytale:block_entity": {}
+    },
+    "BlockEntity": {
+      "Components": {
+        "cable_data": {
+          "IsController": true
+        }
+      }
     }
   },
   "Tags": {
@@ -69,11 +76,11 @@
       -13.5
     ]
   },
-  "Icon": "Icons/ItemsGenerated/Controller.png",
+  "Icon": "Icons/ItemsGenerated/Hltech_Ctrl.png",
   "Recipe": {
     "Input": [
       {
-        "ItemId": "cable",
+        "ItemId": "Hltech_Cbl",
         "Quantity": 4
       },
       {

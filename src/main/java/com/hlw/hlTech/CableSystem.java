@@ -63,22 +63,35 @@ public class CableSystem {
         WorldChunk chunk = world.getChunkIfLoaded(chunkId);
         if (chunk != null) {
             BlockType type = world.getBlockType(pos.x, pos.y, pos.z);
-            if (type != null && type.getId().toLowerCase().contains("cable")) {
-                boolean n = isConnectable(manager, world, pos.x, pos.y, pos.z - 1,ignorePos);
-                boolean s = isConnectable(manager, world, pos.x, pos.y, pos.z + 1,ignorePos);
-                boolean e = isConnectable(manager, world, pos.x + 1, pos.y, pos.z,ignorePos);
-                boolean w = isConnectable(manager, world, pos.x - 1, pos.y, pos.z,ignorePos);
-                boolean u = isConnectable(manager, world, pos.x, pos.y + 1, pos.z,ignorePos);
-                boolean d = isConnectable(manager, world, pos.x, pos.y - 1, pos.z,ignorePos);
-                String stateName = findState(u,d,n,s,e,w);
+            if(type != null){
+                var entity = type.getBlockEntity();
+                if(entity!=null){
+                    var c = type.getBlockEntity().getComponent(CablePlugin.PIPE_COMPONENT_TYPE);
+                    if(c!=null){
 
-                try {
-                    chunk.setBlockInteractionState(pos.x & 31, pos.y, pos.z & 31, type, stateName, true);
-                } catch (Throwable ex) {
-                    ex.printStackTrace();
+                        if (c.getIsCable()) {
+                            boolean n = isConnectable(manager, world, pos.x, pos.y, pos.z - 1,ignorePos);
+                            boolean s = isConnectable(manager, world, pos.x, pos.y, pos.z + 1,ignorePos);
+                            boolean e = isConnectable(manager, world, pos.x + 1, pos.y, pos.z,ignorePos);
+                            boolean w = isConnectable(manager, world, pos.x - 1, pos.y, pos.z,ignorePos);
+                            boolean u = isConnectable(manager, world, pos.x, pos.y + 1, pos.z,ignorePos);
+                            boolean d = isConnectable(manager, world, pos.x, pos.y - 1, pos.z,ignorePos);
+                            String stateName = findState(u,d,n,s,e,w);
+
+                            try {
+                                chunk.setBlockInteractionState(pos.x & 31, pos.y, pos.z & 31, type, stateName, true);
+                            } catch (Throwable ex) {
+                                ex.printStackTrace();
+                            }
+
+                        }
+
+
+                    }
                 }
 
             }
+
         }
     }
 
@@ -117,8 +130,8 @@ public class CableSystem {
             Vector3i pos = event.getTargetBlock();
             World world = ((EntityStore)store.getExternalData()).getWorld();
             String itemId = event.getItemInHand() != null ? event.getItemInHand().getItemId() : "";
-            boolean isCable = itemId.equalsIgnoreCase("cable");
-            boolean isController = itemId.equalsIgnoreCase("controller");
+            boolean isCable = itemId.equalsIgnoreCase("hltech_cbl");
+            boolean isController = itemId.equalsIgnoreCase("hltech_ctrl");
             this.networkManager.ensureWorldRegistered(world);
             WorldHolder holder = this.networkManager.worldHolders.get(world.getWorldConfig().getUuid());
             try {
@@ -182,8 +195,23 @@ public class CableSystem {
         public void handle(int index, ArchetypeChunk<EntityStore> chunk, Store<EntityStore> store, CommandBuffer<EntityStore> buffer, BreakBlockEvent event) {
             Vector3i pos = event.getTargetBlock();
             World world = store.getExternalData().getWorld();
-            boolean isCable = event.getBlockType() != null && event.getBlockType().getId().toLowerCase().contains("cable_state_definitions");
-            boolean isController = event.getBlockType() != null && event.getBlockType().getId().toLowerCase().contains("controller");
+            boolean isCable =false;
+            boolean isController = false;
+            var type = event.getBlockType();
+            if(type != null) {
+                var entity = type.getBlockEntity();
+                if (entity != null) {
+                    var c = type.getBlockEntity().getComponent(CablePlugin.PIPE_COMPONENT_TYPE);
+                    if (c != null) {
+                        isCable = c.getIsCable();
+                        if(!isCable){
+                            isController = c.getIsController();
+                        }
+                    }
+                }
+            }
+
+
             this.networkManager.ensureWorldRegistered(world);
             var wh = this.networkManager.worldHolders.get(world.getWorldConfig().getUuid());
             boolean mightBeInventory = false;

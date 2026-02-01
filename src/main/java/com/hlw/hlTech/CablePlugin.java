@@ -22,6 +22,7 @@ import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.core.universe.world.events.StartWorldEvent;
+import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import javax.annotation.Nonnull;
@@ -30,7 +31,7 @@ import java.util.concurrent.ScheduledExecutorService;
 public class CablePlugin extends JavaPlugin {
     private final CableNetworkManager cableNetworkManager;
     private ScheduledExecutorService tickExecutor;
-    public static ComponentType<EntityStore, CableComponent> PIPE_COMPONENT_TYPE;
+    public static ComponentType<ChunkStore, CableComponent> PIPE_COMPONENT_TYPE;
     private static CablePlugin instance;
 
     public CablePlugin(@Nonnull JavaPluginInit init) {
@@ -51,7 +52,7 @@ public class CablePlugin extends JavaPlugin {
         super.setup();
 
         try {
-            PIPE_COMPONENT_TYPE = this.getEntityStoreRegistry().registerComponent(CableComponent.class, "cable_data", CableComponent.CODEC);
+            PIPE_COMPONENT_TYPE = this.getChunkStoreRegistry().registerComponent(CableComponent.class, "cable_data", CableComponent.CODEC);
         } catch (Exception e) {
             DebugLog.log("!! Failed to register CableComponent: " + e.getMessage());
         }

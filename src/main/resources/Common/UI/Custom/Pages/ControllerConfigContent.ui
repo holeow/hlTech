@@ -24,7 +24,7 @@ Group
       Anchor: (Width : 32, Height: 32);
       ShowQualityBackground: true;
       ShowQuantity: false;
-      ItemId:"Controller";
+      ItemId:"Hltech_Ctrl";
     }
 
     @InfoLabel #PositionLabel
@@ -43,7 +43,7 @@ Group
       Anchor: (Width : 32, Height: 32);
       ShowQualityBackground: true;
       ShowQuantity: false;
-      ItemId:"Controller";
+      ItemId:"Hltech_Ctrl";
       Visible: false;
     }
 
@@ -68,7 +68,7 @@ Group
       Anchor: (Width : 32, Height: 32);
       ShowQualityBackground: true;
       ShowQuantity: false;
-      ItemId:"Controller";
+      ItemId:"Hltech_Ctrl";
       Visible: false;
 
     }
