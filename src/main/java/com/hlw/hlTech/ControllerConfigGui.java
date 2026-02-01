@@ -36,6 +36,10 @@ import com.hypixel.hytale.server.core.entity.entities.Player;
 import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
 import com.hypixel.hytale.server.core.inventory.ItemStack;
 import com.hypixel.hytale.server.core.inventory.container.ItemContainer;
+import com.hypixel.hytale.server.core.modules.entity.EntityModule;
+import com.hypixel.hytale.server.core.modules.entity.component.HeadRotation;
+import com.hypixel.hytale.server.core.ui.Anchor;
+import com.hypixel.hytale.server.core.ui.PatchStyle;
 import com.hypixel.hytale.server.core.ui.Value;
 import com.hypixel.hytale.server.core.ui.builder.EventData;
 import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
@@ -124,6 +128,31 @@ public class ControllerConfigGui extends InteractiveCustomUIPage<ControllerConfi
                 else{
                     int i = 0;
 
+                    int maxDistance = 0;
+                    for(var inventory : node.getNetwork().connectedInventories.keySet()){
+                        var dist = node.getPosition().XZDifference(inventory);
+                        if(maxDistance< dist) maxDistance = dist;
+                    }
+
+                    var cardinalPoint = "";
+                        HeadRotation headrotation = ref.getStore().getComponent(ref,HeadRotation.getComponentType());
+                        if(headrotation != null){
+                            var yawDegrees = Math.toDegrees(headrotation.getRotation().getYaw());
+                            yawDegrees = (yawDegrees % 360 + 360) % 360; // Normalize to 0-360
+                            if (yawDegrees >= 315 || yawDegrees < 45) {
+                                cardinalPoint=( "NORTH");
+                            } else if (yawDegrees >= 45 && yawDegrees < 135) {
+                                cardinalPoint=( "WEST");
+                            } else if (yawDegrees >= 135 && yawDegrees < 225) {
+                                cardinalPoint=( "SOUTH");
+                            } else {
+                                cardinalPoint=( "EAST");
+                            }
+                    }
+                    else DebugLog.log("headrotation null");
+
+                    if (cardinalPoint.equals("")) cardinalPoint = "NORTH";
+
                     for (var inventory : node.getNetwork().connectedInventories.entrySet()){
                         var key = inventory.getKey();
                         String selector = "#ItemGrid[" + i + "]";
@@ -140,6 +169,55 @@ public class ControllerConfigGui extends InteractiveCustomUIPage<ControllerConfi
 
                         commandBuilder.set(selector + " #ItemIcon.ItemId",itemId);
                         commandBuilder.set(selector + " #PositionLabel.Text","[" + key.getX() + ","+key.getY()+","+key.getZ()+"]");
+                        var dist = (float)node.getPosition().XZDifference(inventory.getKey());
+                        var Zdiff =  inventory.getKey().getZ()-node.getPosition().getZ();
+                        var Xdiff =  inventory.getKey().getX()- node.getPosition().getX();
+                        var Mdiff = node.getPosition().manhattanDistance(inventory.getKey());
+                        var total = (float)(Math.abs(Zdiff) + Math.abs(Xdiff));
+                        var distByTotal = ((float)maxDistance)/dist;
+                        var normalizedZ = (((float)Zdiff) /  total)/distByTotal;
+                        var normalizedX = (((float)Xdiff) /  total)/distByTotal;
+
+
+
+                        var anch = new Anchor();
+                        anch.setWidth(Value.of(32));
+                        anch.setHeight(Value.of(32));
+
+                        switch (cardinalPoint){
+                            case "NORTH":
+                                anch.setLeft(Value.of(55+(int)(((float)55)*normalizedX)));
+                                anch.setTop(Value.of(55+(int)(((float)55)*normalizedZ)));
+                                break;
+                            case  "SOUTH":
+                                anch.setLeft(Value.of(55+(int)(((float)55)*(-normalizedX))));
+                                anch.setTop(Value.of(55+(int)(((float)55)*(-normalizedZ))));
+                                break;
+                            case "EAST":
+                                anch.setLeft(Value.of(55+(int)(((float)55)*(normalizedZ))));
+                                anch.setTop(Value.of(55+(int)(((float)55)*(-normalizedX))));
+                                break;
+                            case "WEST":
+                                anch.setLeft(Value.of(55+(int)(((float)55)*(-normalizedZ))));
+                                anch.setTop(Value.of(55+(int)(((float)55)*normalizedX)));
+                                break;
+                        }
+
+                        String imageloc = "";
+                        if(node.getPosition().getY()> inventory.getKey().getY()){
+                            imageloc = "Pages/circle-red.png";
+                        }
+                        else if(node.getPosition().getY()== inventory.getKey().getY()){
+                            imageloc = "Pages/circle-white.png";
+                        }
+                        else {
+                            imageloc = "Pages/circle-green.png";
+                        }
+                        PatchStyle patch = new PatchStyle(Value.of(imageloc));
+                        commandBuilder.setObject(selector + " #PositionCircle.Anchor", anch);
+                        commandBuilder.setObject(selector + " #PositionCircle.Background", patch);
+                        commandBuilder.set(selector + " #DistanceLabel.Text",""+ Mdiff);
+
 
                         var outputList = node.controllerNode.InputsAndOutputs.get(new BlockPos(key.getX(),key.getY(),key.getZ()));
 
@@ -541,6 +619,36 @@ public class ControllerConfigGui extends InteractiveCustomUIPage<ControllerConfi
         }
         else{
             int i = 0;
+
+
+
+            int maxDistance = 0;
+            for(var inventory : node.getNetwork().connectedInventories.keySet()){
+                var dist = node.getPosition().XZDifference(inventory);
+                if(maxDistance< dist) maxDistance = dist;
+            }
+
+            var cardinalPoint = "";
+            HeadRotation headrotation = ref.getStore().getComponent(ref,HeadRotation.getComponentType());
+            if(headrotation != null){
+                var yawDegrees = Math.toDegrees(headrotation.getRotation().getYaw());
+                yawDegrees = (yawDegrees % 360 + 360) % 360; // Normalize to 0-360
+                if (yawDegrees >= 315 || yawDegrees < 45) {
+                    cardinalPoint=( "NORTH");
+                } else if (yawDegrees >= 45 && yawDegrees < 135) {
+                    cardinalPoint=( "WEST");
+                } else if (yawDegrees >= 135 && yawDegrees < 225) {
+                    cardinalPoint=( "SOUTH");
+                } else {
+                    cardinalPoint=( "EAST");
+                }
+            }
+            else DebugLog.log("headrotation null");
+
+            if (cardinalPoint.equals("")) cardinalPoint = "NORTH";
+
+
+
             builder.clear("#ItemGrid");
             eventBuilder.addEventBinding(CustomUIEventBindingType.Activating,  "#BackToInputButton", (new EventData()).append("Action", "selectinput:" + selectedInput), false);
             var selectedOutputList = node.controllerNode.InputsAndOutputs.get(pos);
@@ -574,6 +682,57 @@ public class ControllerConfigGui extends InteractiveCustomUIPage<ControllerConfi
 
                 builder.set(selector + " #ItemIcon.ItemId",itemId);
                 builder.set(selector + " #PositionLabel.Text","[" + key.getX() + ","+key.getY()+","+key.getZ()+"]");
+
+                var dist = (float)node.getPosition().XZDifference(inventory.getKey());
+                var Zdiff =  inventory.getKey().getZ()-node.getPosition().getZ();
+                var Xdiff =  inventory.getKey().getX()- node.getPosition().getX();
+                var Mdiff = node.getPosition().manhattanDistance(inventory.getKey());
+                var total = (float)(Math.abs(Zdiff) + Math.abs(Xdiff));
+                var distByTotal = ((float)maxDistance)/dist;
+                var normalizedZ = (((float)Zdiff) /  total)/distByTotal;
+                var normalizedX = (((float)Xdiff) /  total)/distByTotal;
+
+
+
+                var anch = new Anchor();
+                anch.setWidth(Value.of(32));
+                anch.setHeight(Value.of(32));
+
+                switch (cardinalPoint){
+                    case "NORTH":
+                        anch.setLeft(Value.of(55+(int)(((float)55)*normalizedX)));
+                        anch.setTop(Value.of(55+(int)(((float)55)*normalizedZ)));
+                        break;
+                    case  "SOUTH":
+                        anch.setLeft(Value.of(55+(int)(((float)55)*(-normalizedX))));
+                        anch.setTop(Value.of(55+(int)(((float)55)*(-normalizedZ))));
+                        break;
+                    case "EAST":
+                        anch.setLeft(Value.of(55+(int)(((float)55)*(normalizedZ))));
+                        anch.setTop(Value.of(55+(int)(((float)55)*(-normalizedX))));
+                        break;
+                    case "WEST":
+                        anch.setLeft(Value.of(55+(int)(((float)55)*(-normalizedZ))));
+                        anch.setTop(Value.of(55+(int)(((float)55)*normalizedX)));
+                        break;
+                }
+
+                String imageloc = "";
+                if(node.getPosition().getY()> inventory.getKey().getY()){
+                    imageloc = "Pages/circle-red.png";
+                }
+                else if(node.getPosition().getY()== inventory.getKey().getY()){
+                    imageloc = "Pages/circle-white.png";
+                }
+                else {
+                    imageloc = "Pages/circle-green.png";
+                }
+                PatchStyle patch = new PatchStyle(Value.of(imageloc));
+                commandBuilder.setObject(selector + " #PositionCircle.Anchor", anch);
+                commandBuilder.setObject(selector + " #PositionCircle.Background", patch);
+                commandBuilder.set(selector + " #DistanceLabel.Text",""+ Mdiff);
+
+
                 var outputpos = new BlockPos(key.getX(),key.getY(),key.getZ());
                 if(selectedOutputList!=null ){
                     var dataset = selectedOutputList.stream().filter(a-> a.outputPos.equals(outputpos)).toList();

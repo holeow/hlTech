@@ -66,6 +66,9 @@ public class BlockPos {
     public int manhattanDistance(BlockPos other) {
         return Math.abs(this.x - other.x) + Math.abs(this.y - other.y) + Math.abs(this.z - other.z);
     }
+    public int XZDifference(BlockPos other){
+        return Math.abs(this.x - other.x) + Math.abs((this.z- other.z));
+    }
 
     @Nonnull
     public static BlockPos fromVector3i(@Nonnull Vector3i vec) {

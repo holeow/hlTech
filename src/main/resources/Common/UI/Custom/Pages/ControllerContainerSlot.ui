@@ -9,7 +9,7 @@ Group
 
   Button #ItemButton
   {
-    Anchor: (Width: 125, Height: 125);
+    Anchor: (Width: 142, Height: 142);
     Padding: 2;
     Style: (
       Hovered: (
@@ -38,6 +38,20 @@ Group
         RenderBold: false,
       );
       Text: "";
+    }
+    Group #PositionCircle{
+      Anchor: (Width: 32, Height: 32,Top:0, Left: 0);
+      Background: (TexturePath: "circle-green.png"  );
+
+      Label #DistanceLabel{
+        Anchor: (Width: 32, Height: 32, Top:0,Bottom: 0);
+        Style : (
+          FontSize: 10,
+          TextColor : #000000,
+          HorizontalAlignment: Center,
+          VerticalAlignment: Center
+        );
+      }
     }
   }
 
